@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Shar 💙</title>
+    <style>
+        /* Import a romantic, elegant font */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Soft, dreamy shades of blue gradient */
+            background: linear-gradient(135deg, #e6f2ff 0%, #b3d7ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle blue orchid background elements */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* You can replace this URL later with a high-quality blue orchid PNG */
+            background-image: url('https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=600&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15; /* Keeps it soft and in the background */
+            z-index: 0;
+        }
+
+        /* The Big Dialogue Box */
+        .dialogue-box {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px); /* Gives a modern glassmorphism effect */
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(173, 216, 230, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            z-index: 1;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        /* "Hi Shar" Header */
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #4a90e2; /* Deep soft blue */
+            margin-bottom: 1.5rem;
+        }
+
+        /* Intro Paragraph Placeholder */
+        .intro-text {
+            font-size: 1.05rem;
+            color: #5c6b73;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        /* The Question */
+        .question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #334e68;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Buttons Container */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Base Button Styles */
+        .btn {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* "Okayy" Button (Shade of Blue) */
+        .btn-blue {
+            background-color: #4a90e2;
+            color: white;
+            border: 2px solid #4a90e2;
+        }
+
+        .btn-blue:hover {
+            background-color: #357abd;
+            border-color: #357abd;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        /* "Okay but in white" Button */
+        .btn-white {
+            background-color: white;
+            color: #4a90e2;
+            border: 2px solid #4a90e2;
+        }
+
+        .btn-white:hover {
+            background-color: #f0f7ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(173, 216, 230, 0.4);
+        }
+
+        /* Smooth fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dialogue-box">
+        <h1 class="title">Hi Shar</h1>
+        
+        <!-- You can replace this text whenever you are ready! -->
+        <p class="intro-text">
+            [Your beautiful intro paragraph will go right here. Whenever you're ready to give it to me, we will drop it in to make it perfect for her.]
+        </p>
+        
+        <p class="question">So you know what's coming now, don't you? 😉</p>
+        
+        <div class="button-group">
+            <!-- You can link these to 'page2.html' once we build it -->
+            <a href="#" class="btn btn-blue">Okayy</a>
+            <a href="#" class="btn btn-white">Okay but in white</a>
+        </div>
+    </div>
+
+</body>
+</html>
