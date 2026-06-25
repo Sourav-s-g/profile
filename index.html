@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Shar 💙</title>
     <style>
-        /* Import a romantic, elegant font */
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap');
 
         * {
@@ -20,29 +19,96 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* Soft, dreamy shades of blue gradient */
-            background: linear-gradient(135deg, #e6f2ff 0%, #b3d7ff 100%);
+            /* Updated background: Blue sky and garden effect */
+            background-color: #e6f2ff;
+            background-image: linear-gradient(180deg, #b3d7ff 0%, #e6f2ff 100%);
             position: relative;
             overflow: hidden;
         }
 
-        /* Subtle blue orchid background elements */
+        /* Interactive Garden of Blue Orchids background */
         body::before {
             content: "";
             position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=600&auto=format&fit=crop'); 
+            /* Replace with a seamless garden/blue orchid pattern if desired */
+            background-image: url('https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=1600&auto=format&fit=crop'); 
             background-size: cover;
-            background-position: center;
-            opacity: 0.15; /* Keeps it soft and in the background */
+            background-position: bottom center;
+            opacity: 0.3; 
             z-index: 0;
+            filter: blur(1px); /* Slight blur for focus on dialogue */
+        }
+
+        /* Interactive Floating Clouds */
+        .clouds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50px;
+            animation: floatClouds linear infinite;
+        }
+
+        .cloud::after, .cloud::before {
+            content: '';
+            position: absolute;
+            background: inherit;
+            border-radius: 50%;
+        }
+
+        /* Cloud shape 1 */
+        .cloud-1 {
+            width: 100px; height: 40px;
+            top: 10%; left: -150px;
+            animation-duration: 25s;
+            opacity: 0.8;
+        }
+        .cloud-1::after { width: 50px; height: 50px; top: -25px; left: 15px; }
+        .cloud-1::before { width: 40px; height: 40px; top: -15px; left: 50px; }
+
+        /* Cloud shape 2 */
+        .cloud-2 {
+            width: 150px; height: 60px;
+            top: 30%; left: -200px;
+            animation-duration: 35s;
+            animation-delay: 5s;
+            opacity: 0.5;
+        }
+        .cloud-2::after { width: 80px; height: 80px; top: -40px; left: 20px; }
+        .cloud-2::before { width: 60px; height: 60px; top: -20px; left: 80px; }
+
+        /* Cloud shape 3 */
+        .cloud-3 {
+            width: 80px; height: 30px;
+            top: 15%; left: -100px;
+            animation-duration: 20s;
+            animation-delay: 10s;
+            opacity: 0.7;
+        }
+        .cloud-3::after { width: 40px; height: 40px; top: -20px; left: 10px; }
+        .cloud-3::before { width: 30px; height: 30px; top: -10px; left: 40px; }
+
+        @keyframes floatClouds {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(100vw + 200px)); }
         }
 
         /* The Big Dialogue Box */
         .dialogue-box {
             background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px); /* Modern glassmorphism effect */
+            backdrop-filter: blur(10px);
             padding: 3rem 2.5rem;
             border-radius: 24px;
             box-shadow: 0 10px 30px rgba(173, 216, 230, 0.4);
@@ -50,15 +116,16 @@
             max-width: 520px;
             width: 90%;
             text-align: center;
-            z-index: 1;
+            z-index: 10; /* Above clouds and garden */
             animation: fadeIn 1.2s ease-out;
+            position: relative;
         }
 
         /* "Hi Shar" Header */
         .title {
             font-family: 'Dancing Script', cursive;
             font-size: 3.5rem;
-            color: #4a90e2; /* Deep soft blue */
+            color: #4a90e2;
             margin-bottom: 1.5rem;
         }
 
@@ -133,7 +200,6 @@
             box-shadow: 0 5px 15px rgba(173, 216, 230, 0.4);
         }
 
-        /* Smooth fade-in animation */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -148,6 +214,13 @@
 </head>
 <body>
 
+    <!-- Dynamic Clouds Layer -->
+    <div class="clouds">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+    </div>
+
     <div class="dialogue-box">
         <h1 class="title">Hi Shar</h1>
         
@@ -159,7 +232,6 @@
         <p class="question">So you know what's coming now, don't you? 😉</p>
         
         <div class="button-group">
-            <!-- These point to the next page we will create -->
             <a href="proposal.html" class="btn btn-blue">Okayy</a>
             <a href="proposal.html" class="btn btn-white">Okay but in white</a>
         </div>
