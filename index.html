@@ -338,14 +338,10 @@
       border-color: var(--border);
     }
 
-    /* cards with image */
+    /* cards with aspect-ratio layout images */
     .project-card--image {
       grid-template-columns: 120px 1fr;
       align-items: flex-start;
-    }
-
-    .project-card--text {
-      grid-template-columns: 1fr;
     }
 
     .project-thumb {
@@ -615,12 +611,11 @@
 
 <div class="layout">
 
-  <!-- ── LEFT PANEL ──────────────────────────────────── -->
   <aside class="left-panel">
 
     <div class="left-top">
       <h1 class="hero-name">Sourav S<br/>Gaikwad</h1>
-      <p class="hero-title">AI/ML · iOS Developer · Software Engineer · MIT Manipal'27</p>
+      <p class="hero-title">AI/ML Engineer · iOS Developer · Software Engineer</p>
       <p class="hero-blurb">I build performant, production-grade iOS apps and on-device AI systems. Currently iOS Development Head at ADG, MIT Manipal.</p>
 
       <nav class="side-nav">
@@ -646,10 +641,8 @@
 
   </aside>
 
-  <!-- ── RIGHT PANEL ─────────────────────────────────── -->
   <main class="right-panel" id="content">
 
-    <!-- ABOUT -->
     <section class="section" id="about">
       <p class="section-label">About</p>
       <div class="about-text">
@@ -680,7 +673,6 @@
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
     <section class="section" id="experience">
       <p class="section-label">Experience</p>
       <div class="exp-list">
@@ -742,12 +734,10 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section class="section" id="projects">
       <p class="section-label">Projects</p>
       <div class="projects-list">
 
-        <!-- ADG App -->
         <article class="project-card project-card--image">
           <div class="project-thumb">
             <div class="img-placeholder"><span>assets/<br/>adg-app.png</span></div>
@@ -774,7 +764,6 @@
           </div>
         </article>
 
-        <!-- CMPNXT -->
         <article class="project-card project-card--image">
           <div class="project-thumb">
             <div class="img-placeholder"><span>assets/<br/>cmpnxt-app.png</span></div>
@@ -800,8 +789,10 @@
           </div>
         </article>
 
-        <!-- Chronos -->
-        <article class="project-card project-card--text">
+        <article class="project-card project-card--image">
+          <div class="project-thumb">
+            <div class="img-placeholder"><span>assets/<br/>chronos.png</span></div>
+          </div>
           <div>
             <div class="project-meta">
               <span class="project-badge badge--mobile">iOS</span>
@@ -823,8 +814,10 @@
           </div>
         </article>
 
-        <!-- RAG Pipeline -->
-        <article class="project-card project-card--text">
+        <article class="project-card project-card--image">
+          <div class="project-thumb">
+            <div class="img-placeholder"><span>assets/<br/>rag-pipeline.png</span></div>
+          </div>
           <div>
             <div class="project-meta">
               <span class="project-badge badge--systems">Systems · ML</span>
@@ -850,7 +843,6 @@
       </div>
     </section>
 
-    <!-- CERTIFICATIONS -->
     <section class="section" id="certifications">
       <p class="section-label">Certifications</p>
       <div class="cert-list">
@@ -906,7 +898,6 @@
       </div>
     </section>
 
-    <!-- EXTRACURRICULAR -->
     <section class="section" id="extracurricular">
       <p class="section-label">Extracurricular</p>
       <div class="extra-list">
@@ -916,7 +907,6 @@
           <p class="extra-org">Glam&Glitz Student Club</p>
           <p class="extra-desc">Directing club finances, structuring event budgets, and validating operational expenditures across end-to-end administration pathways for core student club operations.</p>
           
-          <!-- Modeling Photo Placeholders Grid -->
           <div class="modeling-gallery">
             <div class="model-thumb-placeholder">
               <span>assets/<br/>model-1.jpg</span>
@@ -943,7 +933,6 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <div class="right-footer">
       <p> © 2026 Sourav S Gaikwad.</p>
     </div>
