@@ -474,31 +474,30 @@
     .cert-list { display: flex; flex-direction: column; gap: 2px; }
 
     .cert-card {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 0.5rem;
       padding: 1.2rem 1.4rem;
       border-radius: 8px;
       border: 1px solid transparent;
       transition: border-color 0.2s, background 0.2s;
+      align-items: flex-start;
     }
 
     .cert-card:hover { background: var(--surface); border-color: var(--border); }
 
-    .cert-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 1rem;
+    .cert-number {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent-dim);
+      text-align: left;
+      padding-top: 0.1rem;
     }
 
-    .cert-body { flex: 1; min-width: 0; }
+    .cert-card:hover .cert-number { color: var(--accent); }
+
+    .cert-body { min-width: 0; }
 
     .cert-name {
       font-size: 0.88rem;
@@ -532,6 +531,36 @@
     .extra-org { font-size: 0.8rem; color: var(--accent); margin-bottom: 0.5rem; }
 
     .extra-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+
+    /* modeling photo gallery */
+    .modeling-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .model-thumb-placeholder {
+      aspect-ratio: 2 / 3;
+      background: rgba(30, 58, 95, 0.3);
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .model-thumb-placeholder span {
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .extra-card:hover .model-thumb-placeholder {
+      border-color: var(--accent-dim);
+    }
 
     /* ── FOOTER ──────────────────────────────────────────── */
     .right-footer {
@@ -574,6 +603,7 @@
       .project-thumb { width: 100%; height: 140px; }
       .exp-card { grid-template-columns: 36px 1fr; }
       .skills-grid { grid-template-columns: repeat(4, 1fr); }
+      .modeling-gallery { gap: 0.5rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -657,7 +687,6 @@
 
         <article class="exp-card">
           <div class="exp-logo">
-            <!-- Replace with: <img src="assets/birla-logo.png" alt="Birla Corporation" /> -->
             <span class="exp-logo__placeholder">BC</span>
           </div>
           <div>
@@ -676,7 +705,6 @@
 
         <article class="exp-card">
           <div class="exp-logo">
-            <!-- Replace with: <img src="assets/adg-logo.png" alt="ADG MIT Manipal" /> -->
             <span class="exp-logo__placeholder">ADG</span>
           </div>
           <div>
@@ -695,7 +723,6 @@
 
         <article class="exp-card">
           <div class="exp-logo">
-            <!-- Replace with: <img src="assets/honeywell-logo.png" alt="Honeywell" /> -->
             <span class="exp-logo__placeholder">HW</span>
           </div>
           <div>
@@ -723,7 +750,6 @@
         <!-- ADG App -->
         <article class="project-card project-card--image">
           <div class="project-thumb">
-            <!-- Replace with: <img src="assets/adg-app.png" alt="ADG iOS App" /> -->
             <div class="img-placeholder"><span>assets/<br/>adg-app.png</span></div>
           </div>
           <div>
@@ -751,7 +777,6 @@
         <!-- CMPNXT -->
         <article class="project-card project-card--image">
           <div class="project-thumb">
-            <!-- Replace with: <img src="assets/cmpnxt-app.png" alt="CMPNXT" /> -->
             <div class="img-placeholder"><span>assets/<br/>cmpnxt-app.png</span></div>
           </div>
           <div>
@@ -829,13 +854,55 @@
     <section class="section" id="certifications">
       <p class="section-label">Certifications</p>
       <div class="cert-list">
+
         <div class="cert-card">
-          <div class="cert-icon">🍎</div>
+          <div class="cert-number">01</div>
           <div class="cert-body">
             <p class="cert-name">App Design and Development for iOS</p>
             <p class="cert-issuer">University of Toronto · Coursera</p>
           </div>
         </div>
+
+        <div class="cert-card">
+          <div class="cert-number">02</div>
+          <div class="cert-body">
+            <p class="cert-name">Google AI Professional Certificate</p>
+            <p class="cert-issuer">Google · Coursera</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-number">03</div>
+          <div class="cert-body">
+            <p class="cert-name">Introduction to AI</p>
+            <p class="cert-issuer">Coursera</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-number">04</div>
+          <div class="cert-body">
+            <p class="cert-name">Introduction to Information Technology and AWS Cloud</p>
+            <p class="cert-issuer">Coursera</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-number">05</div>
+          <div class="cert-body">
+            <p class="cert-name">Foundations of Project Management</p>
+            <p class="cert-issuer">Google · Coursera</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-number">06</div>
+          <div class="cert-body">
+            <p class="cert-name">Introduction to Business Analysis</p>
+            <p class="cert-issuer">Coursera</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -843,7 +910,36 @@
     <section class="section" id="extracurricular">
       <p class="section-label">Extracurricular</p>
       <div class="extra-list">
-        <p style="font-size:0.85rem;color:var(--muted);font-style:italic;">Coming soon — add your club roles here.</p>
+
+        <article class="extra-card">
+          <p class="extra-role">General Secretary & Treasurer</p>
+          <p class="extra-org">Glam&Glitz Student Club</p>
+          <p class="extra-desc">Directing club finances, structuring event budgets, and validating operational expenditures across end-to-end administration pathways for core student club operations.</p>
+          
+          <!-- Modeling Photo Placeholders Grid -->
+          <div class="modeling-gallery">
+            <div class="model-thumb-placeholder">
+              <span>assets/<br/>model-1.jpg</span>
+            </div>
+            <div class="model-thumb-placeholder">
+              <span>assets/<br/>model-2.jpg</span>
+            </div>
+            <div class="model-thumb-placeholder">
+              <span>assets/<br/>model-3.jpg</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="extra-card">
+          <p class="extra-role">Campus Activities & Athletics</p>
+          <p class="extra-org">MIT Manipal</p>
+          <ul class="project-bullets" style="margin-top: 0.5rem;">
+            <li><strong>Co-Founder</strong> of the <strong>04 Run Club</strong> in Manipal, organizing local pacing events, community track outlines, and athletic engagement platforms.</li>
+            <li>Active performer and management tier within the official dramatics team, <strong>Aaina</strong>, at MIT Manipal.</li>
+            <li>Representing athlete and active player within the <strong>Official Badminton Team</strong> of MIT Manipal.</li>
+          </ul>
+        </article>
+
       </div>
     </section>
 
@@ -856,22 +952,29 @@
 </div>
 
 <script>
-  // Active nav highlight on scroll
+  // Active nav highlight on scroll using IntersectionObserver
   const sections = document.querySelectorAll('.section');
   const navItems = document.querySelectorAll('.side-nav__item');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -60% 0px',
+    threshold: 0
+  };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        navItems.forEach(n => n.classList.remove('active'));
-        const active = document.querySelector(`.side-nav__item[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
+        navItems.forEach(item => item.classList.remove('active'));
+        const activeLink = document.querySelector(`.side-nav__item[href="#${entry.target.id}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
       }
     });
-  }, { threshold: 0.3 });
+  }, observerOptions);
 
-  sections.forEach(s => observer.observe(s));
+  sections.forEach(section => observer.observe(section));
 </script>
-
 </body>
 </html>
