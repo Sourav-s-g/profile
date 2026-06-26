@@ -537,7 +537,7 @@
     }
 
     .model-thumb-placeholder {
-      aspect-ratio: 2 / 3;
+      aspect-ratio: 2 / 3; /* Maintains a premium vertical fashion portrait ratio */
       background: rgba(30, 58, 95, 0.3);
       border: 1px dashed var(--border);
       border-radius: 6px;
@@ -545,6 +545,15 @@
       align-items: center;
       justify-content: center;
       transition: border-color 0.2s, background-color 0.2s;
+      overflow: hidden; /* This acts as a hard frame, masking any image overflow */
+    }
+
+    /* Add this rule below to clamp the images into the frame */
+    .model-thumb-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Forces images to fill the frame elegantly without distortion */
+      display: block;
     }
 
     .model-thumb-placeholder span {
@@ -557,7 +566,6 @@
     .extra-card:hover .model-thumb-placeholder {
       border-color: var(--accent-dim);
     }
-
     /* ── FOOTER ──────────────────────────────────────────── */
     .right-footer {
       margin-top: 4rem;
