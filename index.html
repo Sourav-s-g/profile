@@ -1,241 +1,650 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Shar 💙</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sourav S Gaikwad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* Updated background: Blue sky and garden effect */
-            background-color: #e6f2ff;
-            background-image: linear-gradient(180deg, #b3d7ff 0%, #e6f2ff 100%);
-            position: relative;
-            overflow: hidden;
-        }
+    :root {
+      --bg:        #0A0F1E;
+      --surface:   #0D1B2A;
+      --border:    #1E3A5F;
+      --accent:    #4A90D9;
+      --accent-dim:#2A5A8F;
+      --text:      #E8EEF4;
+      --muted:     #8A9BB0;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body:    'Inter', sans-serif;
+    }
 
-        /* Interactive Garden of Blue Orchids background */
-        body::before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Replace with a seamless garden/blue orchid pattern if desired */
-            background-image: url('https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=1600&auto=format&fit=crop'); 
-            background-size: cover;
-            background-position: bottom center;
-            opacity: 0.3; 
-            z-index: 0;
-            filter: blur(1px); /* Slight blur for focus on dialogue */
-        }
+    html { scroll-behavior: smooth; }
 
-        /* Interactive Floating Clouds */
-        .clouds {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            z-index: 1;
-            overflow: hidden;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .cloud {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50px;
-            animation: floatClouds linear infinite;
-        }
+    /* ── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 6vw;
+      background: rgba(10, 15, 30, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(30, 58, 95, 0.4);
+    }
 
-        .cloud::after, .cloud::before {
-            content: '';
-            position: absolute;
-            background: inherit;
-            border-radius: 50%;
-        }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
 
-        /* Cloud shape 1 */
-        .cloud-1 {
-            width: 100px; height: 40px;
-            top: 10%; left: -150px;
-            animation-duration: 25s;
-            opacity: 0.8;
-        }
-        .cloud-1::after { width: 50px; height: 50px; top: -25px; left: 15px; }
-        .cloud-1::before { width: 40px; height: 40px; top: -15px; left: 50px; }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
 
-        /* Cloud shape 2 */
-        .cloud-2 {
-            width: 150px; height: 60px;
-            top: 30%; left: -200px;
-            animation-duration: 35s;
-            animation-delay: 5s;
-            opacity: 0.5;
-        }
-        .cloud-2::after { width: 80px; height: 80px; top: -40px; left: 20px; }
-        .cloud-2::before { width: 60px; height: 60px; top: -20px; left: 80px; }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
 
-        /* Cloud shape 3 */
-        .cloud-3 {
-            width: 80px; height: 30px;
-            top: 15%; left: -100px;
-            animation-duration: 20s;
-            animation-delay: 10s;
-            opacity: 0.7;
-        }
-        .cloud-3::after { width: 40px; height: 40px; top: -20px; left: 10px; }
-        .cloud-3::before { width: 30px; height: 30px; top: -10px; left: 40px; }
+    .nav-links a:hover { color: var(--text); }
 
-        @keyframes floatClouds {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(100vw + 200px)); }
-        }
+    /* ── HERO / ABOUT ────────────────────────────────────── */
+    #about {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 6vw 5rem;
+    }
 
-        /* The Big Dialogue Box */
-        .dialogue-box {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 3rem 2.5rem;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(173, 216, 230, 0.4);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            max-width: 520px;
-            width: 90%;
-            text-align: center;
-            z-index: 10; /* Above clouds and garden */
-            animation: fadeIn 1.2s ease-out;
-            position: relative;
-        }
+    .hero-inner {
+      max-width: 860px;
+    }
 
-        /* "Hi Shar" Header */
-        .title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            color: #4a90e2;
-            margin-bottom: 1.5rem;
-        }
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
 
-        /* Intro Paragraph */
-        .intro-text {
-            font-size: 1.1rem;
-            color: #475569;
-            line-height: 1.7;
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
+    .hero-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.5;
+    }
 
-        .whisper-text {
-            display: block;
-            margin-top: 0.8rem;
-            font-style: italic;
-            color: #64748b;
-            font-size: 1rem;
-        }
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 1rem;
+      position: relative;
+    }
 
-        /* The Question */
-        .question {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 2.5rem;
-        }
+    /* scan-line animation — one-time on load */
+    .hero-name::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      animation: scan 1.2s ease-out 0.3s 1 forwards;
+      opacity: 0;
+      top: 50%;
+    }
 
-        /* Buttons Container */
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+    @keyframes scan {
+      0%   { top: 0%;   opacity: 0.8; }
+      100% { top: 105%; opacity: 0; }
+    }
 
-        /* Base Button Styles */
-        .btn {
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2.2vw, 1.35rem);
+      font-weight: 400;
+      color: var(--muted);
+      margin-bottom: 2.8rem;
+      letter-spacing: 0.01em;
+    }
 
-        /* "Okayy" Button (Shade of Blue) */
-        .btn-blue {
-            background-color: #4a90e2;
-            color: white;
-            border: 2px solid #4a90e2;
-        }
+    .hero-title span {
+      color: var(--text);
+      font-weight: 500;
+    }
 
-        .btn-blue:hover {
-            background-color: #357abd;
-            border-color: #357abd;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
-        }
+    /* bio card */
+    .bio {
+      border-left: 2px solid var(--accent);
+      padding-left: 1.5rem;
+      margin-bottom: 2.8rem;
+      max-width: 620px;
+    }
 
-        /* "Okay but in white" Button */
-        .btn-white {
-            background-color: white;
-            color: #4a90e2;
-            border: 2px solid #4a90e2;
-        }
+    .bio p {
+      font-size: 0.975rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
 
-        .btn-white:hover {
-            background-color: #f0f7ff;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(173, 216, 230, 0.4);
-        }
+    .bio p + p { margin-top: 0.85rem; }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    .bio p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* pill tags */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      background: rgba(74, 144, 217, 0.08);
+      border: 1px solid rgba(74, 144, 217, 0.2);
+      border-radius: 4px;
+      padding: 0.3rem 0.75rem;
+    }
+
+    /* social links */
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .social-link:hover { color: var(--accent); }
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .social-divider {
+      width: 1px;
+      height: 14px;
+      background: var(--border);
+    }
+
+
+    /* ── PROJECTS ────────────────────────────────────────── */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem 2.2rem;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    /* cards with side image */
+    .project-card--image {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 2rem;
+      align-items: center;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .project-card--flip {
+      grid-template-columns: 260px 1fr;
+    }
+
+    .project-card--image .project-card__body {
+      padding: 2rem 2.2rem;
+    }
+
+    .project-card--flip .project-card__body {
+      padding: 2rem 2.2rem 2rem 0;
+    }
+
+    .project-card__image {
+      height: 100%;
+      min-height: 220px;
+      overflow: hidden;
+    }
+
+    .project-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .img-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      background: rgba(30, 58, 95, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .img-placeholder span {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      font-family: var(--font-body);
+      opacity: 0.6;
+    }
+
+    /* text-only card */
+    .project-card--text {
+      display: block;
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .project-badge {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+    }
+
+    .badge--mobile {
+      color: #7EB8F7;
+      background: rgba(74, 144, 217, 0.1);
+      border: 1px solid rgba(74, 144, 217, 0.2);
+    }
+
+    .badge--systems {
+      color: #A78BFA;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+    }
+
+    .project-date {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-stack {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .project-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .project-bullets li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .project-bullets li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent-dim);
+    }
+
+    .project-bullets li strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    @media (max-width: 700px) {
+      .project-card--image,
+      .project-card--flip {
+        grid-template-columns: 1fr;
+      }
+      .project-card--flip {
+        direction: ltr;
+      }
+      .project-card__image {
+        min-height: 180px;
+      }
+      .project-card--image .project-card__body,
+      .project-card--flip .project-card__body {
+        padding: 1.5rem;
+      }
+    }
+
+    /* ── SECTION SCAFFOLD (future sections) ─────────────── */
+    section:not(#about) {
+      padding: 6rem 6vw;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 3rem;
+    }
+
+    .coming-soon {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    footer {
+      padding: 2.5rem 6vw;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 600px) {
+      nav { padding: 1rem 5vw; }
+      .nav-links { gap: 1.2rem; }
+      #about { padding: 7rem 5vw 4rem; }
+      .socials { flex-wrap: wrap; gap: 1rem; }
+      .social-divider { display: none; }
+    }
+
+    /* ── REDUCED MOTION ──────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-name::after { animation: none; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Dynamic Clouds Layer -->
-    <div class="clouds">
-        <div class="cloud cloud-1"></div>
-        <div class="cloud cloud-2"></div>
-        <div class="cloud cloud-3"></div>
-    </div>
+  <!-- NAV -->
+  <nav>
+    <a href="#about" class="nav-logo">sg.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#extracurricular">Extra</a></li>
+    </ul>
+  </nav>
 
-    <div class="dialogue-box">
-        <h1 class="title">Hi Shar</h1>
-        
-        <p class="intro-text">
-            Well, well, well. I will keep being creative for you in ways throughout the time we will be spending together depending on the option you select given below.
-            <span class="whisper-text">"Love you too (hope you can hear this)"</span>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="hero-inner">
+
+      <p class="hero-eyebrow">Based in Manipal, India</p>
+
+      <h1 class="hero-name">Sourav S Gaikwad</h1>
+
+      <p class="hero-title">
+        <span>iOS Developer</span> &nbsp;·&nbsp; AI/ML Engineer &nbsp;·&nbsp;
+        <span>CS-IT @ MIT Manipal</span> &nbsp;'27
+      </p>
+
+      <div class="bio">
+        <p>
+          I build <strong>performant, production-grade iOS applications</strong> with SwiftUI and UIKit — 
+          from architecting relational database schemas to squashing retain cycles with Xcode Instruments. 
+          Currently leading iOS development at the <strong>Apple Developers Group, MIT Manipal</strong>.
         </p>
-        
-        <p class="question">So you know what's coming now, don't you? 😉</p>
-        
-        <div class="button-group">
-            <a href="proposal.html" class="btn btn-blue">Okayy</a>
-            <a href="proposal.html" class="btn btn-white">Okay but in white</a>
-        </div>
+        <p>
+          Outside mobile, I work on <strong>on-device AI systems</strong> — quantizing LLMs to CoreML/MLX 
+          formats and building offline RAG pipelines that run entirely on Apple Silicon without external API dependencies.
+        </p>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag">Swift / SwiftUI</span>
+        <span class="tag">UIKit</span>
+        <span class="tag">CoreML / MLX</span>
+        <span class="tag">RAG Pipelines</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Supabase</span>
+        <span class="tag">CI/CD · GitHub Actions</span>
+        <span class="tag">Python</span>
+      </div>
+
+      <div class="socials">
+        <!-- GitHub -->
+        <a href="https://github.com/Sourav-s-g" target="_blank" rel="noopener" class="social-link">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          Sourav-s-g
+        </a>
+        <div class="social-divider"></div>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/sourav-s-gaikwad-a6b135338/" target="_blank" rel="noopener" class="social-link">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          sourav-s-gaikwad
+        </a>
+        <div class="social-divider"></div>
+        <!-- Email -->
+        <a href="mailto:souravgaikwad95@gmail.com" class="social-link">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-.989.98-1.57 1.797-1.115L12 9.636l10.203-5.294C23.02 3.887 24 4.468 24 5.457z"/>
+          </svg>
+          souravgaikwad95@gmail.com
+        </a>
+      </div>
+
     </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label">02 — Work</p>
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-grid">
+
+      <!-- ADG iOS App — with image -->
+      <article class="project-card project-card--image">
+        <div class="project-card__body">
+          <div class="project-meta">
+            <span class="project-badge badge--mobile">iOS</span>
+            <span class="project-date">May 2026 – Present</span>
+          </div>
+          <h3 class="project-name">ADG iOS App</h3>
+          <p class="project-stack">Swift · SwiftUI · UIKit · PostgreSQL · GitHub Actions</p>
+          <ul class="project-bullets">
+            <li>Architected a full-stack campus app using <strong>UIHostingController</strong> for UIKit–SwiftUI interoperability; profiled and resolved retain cycles with Xcode Instruments (Leaks &amp; Time Profiler).</li>
+            <li>Engineered a <strong>CI/CD pipeline via GitHub Actions</strong> running async network integration tests, UI automation, and XCTest suites before every compilation.</li>
+            <li>Designed a relational PostgreSQL schema with strict indexing, achieving <strong>sub-100ms API latency</strong> under high-concurrency traffic.</li>
+          </ul>
+        </div>
+        <div class="project-card__image">
+          <!-- Replace with: <img src="assets/adg-app.png" alt="ADG iOS App screenshot" /> -->
+          <div class="img-placeholder"><span>assets/adg-app.png</span></div>
+        </div>
+      </article>
+
+      <!-- CMPNXT — with image, flipped -->
+      <article class="project-card project-card--image project-card--flip">
+        <div class="project-card__image">
+          <!-- Replace with: <img src="assets/cmpnxt-app.png" alt="CMPNXT screenshot" /> -->
+          <div class="img-placeholder"><span>assets/cmpnxt-app.png</span></div>
+        </div>
+        <div class="project-card__body">
+          <div class="project-meta">
+            <span class="project-badge badge--mobile">iOS</span>
+            <span class="project-date">Jan 2026 – Present</span>
+          </div>
+          <h3 class="project-name">CMPNXT: Cross-Campus Event Platform</h3>
+          <p class="project-stack">Swift · SwiftUI · PostgreSQL</p>
+          <ul class="project-bullets">
+            <li>Unified inter-collegiate events on a single campus platform; used <strong>Xcode memory graphs</strong> to debug retain cycles in asynchronous event-handling closures.</li>
+            <li>Automated <strong>XCTest regression suites</strong> verifying clean ARC deallocation profiles across all async paths.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Chronos — text only -->
+      <article class="project-card project-card--text">
+        <div class="project-meta">
+          <span class="project-badge badge--mobile">iOS</span>
+          <span class="project-date">March 2026</span>
+        </div>
+        <h3 class="project-name">Chronos: Smart Collaborative Calendar</h3>
+        <p class="project-stack">Swift · SwiftUI · Supabase · PostgreSQL</p>
+        <ul class="project-bullets">
+          <li>Built a collaborative calendar engine with an <strong>automated conflict-detection interval algorithm</strong> to prevent overlapping schedules before database writes.</li>
+          <li>Designed a <strong>multi-tenant RBAC schema</strong> with temporal token validation; XCTest suites verify clean ARC deallocation of all async closures.</li>
+        </ul>
+      </article>
+
+      <!-- RAG Pipeline — text only -->
+      <article class="project-card project-card--text">
+        <div class="project-meta">
+          <span class="project-badge badge--systems">Systems · ML</span>
+          <span class="project-date">April 2026 – Present</span>
+        </div>
+        <h3 class="project-name">On-Device macOS RAG Pipeline</h3>
+        <p class="project-stack">Python · CoreML · MLX · Swift</p>
+        <ul class="project-bullets">
+          <li>Architecting a <strong>fully offline RAG pipeline</strong> for macOS, optimized for constrained memory and the Apple Silicon Neural Engine — zero external API calls.</li>
+          <li>Quantizing and compiling LLMs into <strong>CoreML/MLX formats</strong> for low-latency on-device inference.</li>
+          <li>Custom local vector indexing with similarity routines to minimize memory footprint.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE (scaffold) -->
+  <section id="experience">
+    <p class="section-label">03 — Career</p>
+    <h2 class="section-title">Experience</h2>
+    <p class="coming-soon">Professional experience — coming soon.</p>
+  </section>
+
+  <!-- CERTIFICATIONS (scaffold) -->
+  <section id="certifications">
+    <p class="section-label">04 — Learning</p>
+    <h2 class="section-title">Certifications</h2>
+    <p class="coming-soon">Coursera certifications — coming soon.</p>
+  </section>
+
+  <!-- EXTRACURRICULAR (scaffold) -->
+  <section id="extracurricular">
+    <p class="section-label">05 — Beyond Code</p>
+    <h2 class="section-title">Extracurricular</h2>
+    <p class="coming-soon">Club leadership & hackathons — coming soon.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Sourav S Gaikwad</p>
+    <p>Built with vanilla HTML · Hosted on GitHub Pages</p>
+  </footer>
 
 </body>
 </html>
